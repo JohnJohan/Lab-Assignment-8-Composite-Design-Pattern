@@ -1,0 +1,32 @@
+public class Teacher implements EducationalUnit {
+    private String name;
+    private String subject;
+    private double salary;
+
+    public Teacher(String name, String subject, double salary) {
+        this.name = name;
+        this.subject = subject;
+        this.salary = salary;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getDetails() {
+        return String.format("Teacher: %s\nSubject: %s\nSalary: $%,.2f",
+                            name, subject, salary);
+    }
+
+    @Override
+    public int getStudentCount() {
+        return 0; // Teachers don't contain students
+    }
+
+    @Override
+    public double getBudget() {
+        return salary;
+    }
+}
