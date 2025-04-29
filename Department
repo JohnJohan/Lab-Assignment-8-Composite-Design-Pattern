@@ -1,0 +1,15 @@
+public class Department extends Organization {
+    private String subject;
+
+    public Department(String name, String subject) {
+        super(name);
+        this.subject = subject;
+    }
+
+    @Override
+    public String getDetails() {
+        return String.format("Department: %s (Subject: %s)\n" +
+                           "Students: %d\nBudget: $%,.2f",
+                           name, subject, getStudentCount(), getBudget());
+    }
+}
