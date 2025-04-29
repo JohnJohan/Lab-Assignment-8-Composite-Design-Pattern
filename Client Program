@@ -1,0 +1,76 @@
+public class NEUOrganizationDemo {
+    public static void main(String[] args) {
+        // Create main university
+        College neu = new College("New Era University");
+        
+        // Create colleges
+        College engineering = new College("College of Engineering");
+        College business = new College("College of Business");
+        
+        // Add colleges to university
+        neu.addSubCollege(engineering);
+        neu.addSubCollege(business);
+        
+        // Create departments for engineering
+        Department csDept = new Department("Computer Science", "CS");
+        Department itDept = new Department("Information Technology", "IT");
+        
+        engineering.addDepartment(csDept);
+        engineering.addDepartment(itDept);
+        
+        // Create departments for business
+        Department financeDept = new Department("Finance", "FIN");
+        Department marketingDept = new Department("Marketing", "MKT");
+        
+        business.addDepartment(financeDept);
+        business.addDepartment(marketingDept);
+        
+        // Add teachers to departments
+        Teacher csTeacher1 = new Teacher("Dr. Smith", "Algorithms", 80000);
+        Teacher csTeacher2 = new Teacher("Prof. Johnson", "Data Structures", 75000);
+        csDept.addUnit(csTeacher1);
+        csDept.addUnit(csTeacher2);
+        
+        Teacher itTeacher = new Teacher("Dr. Lee", "Networking", 78000);
+        itDept.addUnit(itTeacher);
+        
+        Teacher financeTeacher = new Teacher("Prof. Brown", "Investments", 85000);
+        financeDept.addUnit(financeTeacher);
+        
+        Teacher marketingTeacher = new Teacher("Dr. Wilson", "Consumer Behavior", 82000);
+        marketingDept.addUnit(marketingTeacher);
+        
+        // Add students to departments
+        Student csStudent1 = new Student("Alice", "S1001", 5000);
+        Student csStudent2 = new Student("Bob", "S1002", 5000);
+        csDept.addUnit(csStudent1);
+        csDept.addUnit(csStudent2);
+        
+        Student itStudent = new Student("Charlie", "S1003", 5000);
+        itDept.addUnit(itStudent);
+        
+        Student financeStudent1 = new Student("David", "S2001", 4500);
+        Student financeStudent2 = new Student("Eve", "S2002", 4500);
+        financeDept.addUnit(financeStudent1);
+        financeDept.addUnit(financeStudent2);
+        
+        Student marketingStudent = new Student("Frank", "S2003", 4500);
+        marketingDept.addUnit(marketingStudent);
+        
+        // Display university structure and statistics
+        System.out.println("=== NEW ERA UNIVERSITY STRUCTURE ===");
+        System.out.println(neu.getDetails());
+        
+        System.out.println("\n=== COLLEGE OF ENGINEERING DETAILS ===");
+        System.out.println(engineering.getDetails());
+        
+        System.out.println("\n=== COMPUTER SCIENCE DEPARTMENT DETAILS ===");
+        System.out.println(csDept.getDetails());
+        
+        System.out.println("\n=== STUDENT EXAMPLE ===");
+        System.out.println(csStudent1.getDetails());
+        
+        System.out.println("\n=== TEACHER EXAMPLE ===");
+        System.out.println(csTeacher1.getDetails());
+    }
+}
