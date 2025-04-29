@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class College extends Organization {
+    private List<Department> departments = new ArrayList<>();
+    private List<College> subColleges = new ArrayList<>();
+
+    public College(String name) {
+        super(name);
+    }
+
+    public void addDepartment(Department department) {
+        departments.add(department);
+        addUnit(department);
+    }
+
+    public void addSubCollege(College college) {
+        subColleges.add(college);
+        addUnit(college);
+    }
+
+    @Override
+    public String getDetails() {
+        StringBuilder details = new StringBuilder();
+        details.append("College: ").append(name).append("\n");
+        details.append("Departments: ").append(departments.size()).append("\n");
+        details.append("Sub-Colleges: ").append(subColleges.size()).append("\n");
+        details.append("Total Students: ").append(getStudentCount()).append("\n");
+        details.append("Total Budget: $").append(String.format("%,.2f", getBudget())).append("\n");
+        
+        details.append("\nDepartments:\n");
+        for (Department dept : departments) {
+            details.append("- ").append(dept.getName()).append("\n");
+        }
+        
+        details.append("\nSub-Colleges:\n");
+        for (College college : subColleges) {
+            details.append("- ").append(college.getName()).append("\n");
+        }
+        
+        return details.toString();
+    }
+}
