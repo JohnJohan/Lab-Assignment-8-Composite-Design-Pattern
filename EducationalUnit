@@ -1,0 +1,6 @@
+public interface EducationalUnit {
+    String getName();
+    String getDetails();
+    int getStudentCount();
+    double getBudget();
+}
