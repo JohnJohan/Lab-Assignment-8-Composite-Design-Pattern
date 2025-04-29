@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Organization implements EducationalUnit {
+    protected String name;
+    protected List<EducationalUnit> units = new ArrayList<>();
+
+    public Organization(String name) {
+        this.name = name;
+    }
+
+    public void addUnit(EducationalUnit unit) {
+        units.add(unit);
+    }
+
+    public void removeUnit(EducationalUnit unit) {
+        units.remove(unit);
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getStudentCount() {
+        int count = 0;
+        for (EducationalUnit unit : units) {
+            count += unit.getStudentCount();
+        }
+        return count;
+    }
+
+    @Override
+    public double getBudget() {
+        double budget = 0;
+        for (EducationalUnit unit : units) {
+            budget += unit.getBudget();
+        }
+        return budget;
+    }
+}
